@@ -1,0 +1,25 @@
+{
+    "groups": [
+        {
+            "id": "xxx",
+            "options": {
+                "name": "Xxx",
+                "rating": 1
+            }
+        },
+        {
+            "id": "yyy",
+            "options": {
+                "name": "Yyy",
+                "rating": 2
+            }
+        },
+        {
+            "id": "zzz",
+            "options": {
+                "name": "Zzz",
+                "rating": 3
+            }
+        }
+    ]
+}

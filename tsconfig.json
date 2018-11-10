@@ -1,0 +1,43 @@
+{
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "declaration": true,
+        "target": "esnext",
+        "allowJs": true,
+        "noEmit": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "strict": true,
+        "jsx": "react",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "baseUrl": ".",
+        "paths": {
+            "Components/*": [
+                "src/components/*"
+            ],
+            "Functions/*": [
+                "src/functions/*"
+            ],
+            "Pages": [
+                "src/pages/index.js"
+            ],
+            "Pages/*": [
+                "src/pages/*"
+            ],
+            "States/*": [
+                "src/states/*"
+            ],
+            "Themes": [
+                "src/themes/index.js"
+            ],
+            "Themes/*": [
+                "src/themes/*"
+            ],
+        },
+    },
+    "include": [
+        "index.js",
+        "src"
+    ],
+}
