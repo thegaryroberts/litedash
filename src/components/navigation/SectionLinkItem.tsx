@@ -8,7 +8,7 @@ const StyledLi = styled("li")`
 
     &::after {
         content: ' \\\\';
-        color: hsla(330, 90%, 90%, 0.55);
+        color: hsla(330, 90%, 80%, 0.4);
     }
 
     &&:last-child {

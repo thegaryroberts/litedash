@@ -1,9 +1,7 @@
-import { color } from "./color"
-import { fontFamily } from "./fonts"
-import { layout } from "./layout"
+import styled from "./styledWithTheme"
+import { theme } from "./theme"
 
-export const theme = {
-    color,
-    fontFamily,
-    layout,
+export {
+    styled as styledWithTheme,
+    theme,
 }

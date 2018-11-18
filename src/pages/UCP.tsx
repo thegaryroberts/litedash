@@ -1,25 +1,9 @@
 import React, { SFC, useEffect } from "react"
-import styled from "react-emotion"
 
-import { Graphics } from "Components/graphics"
+import { Graphics } from "Components/media/graphics"
 import { Content } from "Components/structure/content"
-import { textRepeater } from "Functions/text-repeater"
+import { Layout } from "Components/structure/layout"
 import { useGlobalStateOf } from "States/global"
-
-const UnderConstructionH1 = styled("h1")`
-    border-radius: 25px;
-    color: hsla(40, 95%, 60%, 1);
-    font-family: ${(props) => props.theme.fontFamily.heading};
-    font-size: 8em;
-    width: 100vw;
-    height: 50vh;
-    background-color: hsla(0, 100%, 100%, 0.2);
-    display: flex;
-    align-items: center; /* horizontal */
-    justify-content: center; /* vertical */
-    transform: rotate(-10deg);
-    text-decoration: overline underline;
-`
 
 const getText = (counter: number) => {
 
@@ -56,21 +40,15 @@ export const UCP: SFC = () => {
         setCounter(counter + 1)
     }, [])
 
+    const { BigStamp, BigSticker } = Graphics
+
     return (
         <>
-            <Graphics.PageName wordSpacing={1}>{textRepeater("Coming Soon Innit", 4)}</Graphics.PageName>
-            <UnderConstructionH1>Men At Work</UnderConstructionH1>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <Content.Intro>
+            <Graphics.BackgroundTitle title="Coming Soon Innit" repeatCount={3} wordSpacing={3} />
+            <BigSticker><BigStamp.Yellow>Men At Work</BigStamp.Yellow></BigSticker>
+            <Content.Tagline>
                 {getText(counter)}
-            </Content.Intro>
+            </Content.Tagline>
         </>
     )
 }

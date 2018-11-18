@@ -1,10 +1,10 @@
 import React, { SFC } from "react"
-import styled from "react-emotion"
 
-const StyledNav = styled("nav")`
+import { styledWithTheme } from "Themes"
+
+const StyledNav = styledWithTheme("nav")`
 
     ul {
-        color: orange;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
@@ -12,11 +12,11 @@ const StyledNav = styled("nav")`
         padding-left: 0;
         margin-bottom: 10px;
 
-        @media (${(props) => props.theme.layout.tabletUp}) {
+        ${(props) => props.theme.mq.tablet} {
             margin-bottom: 20px;
         }
 
-        @media (${(props) => props.theme.layout.desktopUp}) {
+        ${(props) => props.theme.mq.desktop} {
             margin-bottom: 30px;
         }
     }

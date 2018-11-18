@@ -5,4 +5,5 @@ export const Content = styled("div")`
     font-size: 2em;
     text-align: center;
     margin-bottom: 20px;
+    overflow: hidden;
 `

@@ -1,17 +1,39 @@
 import { injectGlobal } from "emotion"
+import { theme } from "Themes"
 
 (() => injectGlobal`
     * {
         box-sizing: border-box;
     }
 
+    html {
+        height: 100%;
+    }
+
     html, body {
         margin: 0;
-        height: 90%;
     }
 
     body {
-        background: linear-gradient(to bottom, #7c437b 0%, #ad1283 50%, #3d2d3c 100%);
+        background: linear-gradient(to top, hsl(331, 30%, 37%) 0%, hsl(346, 81%, 37%) 50%, hsl(334, 15%, 21%) 100%);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color: white;
+        height: 95vh;
+        min-width: 302px;
+    }
+
+    a[href] {
+        color: ${theme.color.primaryHighlight};
+
+        &:hover {
+            color: white;
+        }
+    }
+`)()
+
+/*
+        background: linear-gradient(to top, hsl(301, 30%, 37%) 0%, hsl(316, 81%, 37%) 50%, hsl(304, 15%, 21%) 100%);
         background: radial-gradient(
             circle,
             #3f163c 0%,
@@ -23,11 +45,4 @@ import { injectGlobal } from "emotion"
             #251824 70%,
             #140b13 100%
         );
-        color: white;
-        height: 100%;
-    }
-
-    a[href] {
-        color: hsla(330, 90%, 90%, 1)
-    }
-`)()
+*/

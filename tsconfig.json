@@ -11,13 +11,20 @@
         "jsx": "react",
         "moduleResolution": "node",
         "esModuleInterop": true,
+        "resolveJsonModule": true,
         "baseUrl": ".",
         "paths": {
+            "Assets/*": [
+                "src/assets/*"
+            ],
             "Components/*": [
                 "src/components/*"
             ],
             "Functions/*": [
                 "src/functions/*"
+            ],
+            "Interfaces/*": [
+                "src/interfaces/*"
             ],
             "Pages": [
                 "src/pages/index.js"

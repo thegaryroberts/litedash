@@ -1,0 +1,124 @@
+{
+    "groups": [
+        {
+            "id": "js",
+            "name": "Javascript",
+            "techNames": [
+                "ES6 Imports",
+                "Rest & Spread Operators",
+                "Promises",
+                "Fetch API"
+            ]
+        },
+        {
+            "id": "ts",
+            "name": "Typescript",
+            "techNames": [
+                "Interfaces",
+                "Type Annotations",
+                "Type Assertions",
+                "Union Types",
+                "Event Handlers",
+                "Module Aliasing",
+                "Type Checking",
+                "Linting"
+            ]
+        },
+        {
+            "id": "react",
+            "name": "React",
+            "techNames": [
+                "React Dom",
+                "Classes",
+                "JSX Free",
+                "Stateless Function Components (SFC)",
+                "Conditional Rendering",
+                "Namespaced Components",
+                "Error Boundaries",
+                "Experimental: Hooks - UseEffect",
+                "Experimental: Hooks - UseState",
+                "Experimental: Hooks - GlobalState"
+            ]
+        },
+        {
+            "id": "react-router",
+            "name": "React Router",
+            "techNames": [
+                "Hash Routing",
+                "Route",
+                "Link",
+                "NavLink",
+                "HashLink",
+                "Params"
+            ]
+        },
+        {
+            "id": "css",
+            "name": "CSS",
+            "techNames": [
+                "Scss Selectors",
+                "Psuedo Selectors",
+                "Psuedo Elements",
+                "Flexbox",
+                "Gradients",
+                "HSLa",
+                "Transforms - Rotate",
+                "Transforms - Scale",
+                "Transforms - Translate",
+                "Animations",
+                "Filters"
+            ]
+        },
+        {
+            "id": "svg",
+            "name": "SVG",
+            "techNames": [
+                "Curves",
+                "TextPath",
+                "Filters"
+            ]
+        },
+        {
+            "id": "emotion",
+            "name": "Emotion",
+            "techNames": [
+                "CSS Class Creation",
+                "React Styled Components",
+                "Component Inheritance",
+                "Keyframes",
+                "Theming",
+                "Global CSS"
+            ]
+        },
+        {
+            "id": "webpack",
+            "name": "Webpack",
+            "techNames": [
+                "Dev & Production Builds",
+                "HTML Templating",
+                "Sorucemaps",
+                "Entry Polyfills (what-wg)"
+            ]
+        },
+        {
+            "id": "babel",
+            "name": "Babel",
+            "techNames": [
+                "Babel Polyfill",
+                "Presets & Plugins",
+                "Module Aliasing"
+            ]
+        },
+        {
+            "id": "misc",
+            "name": "Misc Config",
+            "techNames": [
+                "editorconfig",
+                "gitignore",
+                "gitkeep",
+                "npmrc",
+                "vscode"
+            ]
+        }
+    ]
+}

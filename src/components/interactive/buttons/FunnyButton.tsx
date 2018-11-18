@@ -1,7 +1,7 @@
 import React, { SFC, useState } from "react"
 import styled, { keyframes } from "react-emotion"
 
-import { Sounds } from "Components/sounds"
+import { Sounds } from "Components/media/sounds"
 
 // @ts-ignore
 import aacAudio from "../../../assets/12.aac"
@@ -51,13 +51,18 @@ const AudioPlayers: SFC<{ count: number }> = ({ count }) => {
   const animationPlayState = count > 3 ? "running" : "stopped"
 
   const RoyalSamplerImageWrapper = styled("div")`
-    filter: opacity(${(count * 25) - 10}%) blur(${100 - (count * 25) - 30}px);
+    filter: opacity(${(count * 20) - 10}%) blur(${100 - (count * 20) - 30}px);
     animation: ${strobe} 1s linear infinite alternate ${animationPlayState};
   `
 
   const RoyalSamplerImage = styled("img")`
     width: 100%;
   `
+  const image = (
+    <RoyalSamplerImageWrapper>
+      <RoyalSamplerImage src={royalSamplerImage} />
+    </RoyalSamplerImageWrapper>
+  )
 
   return (
     <>
@@ -66,9 +71,7 @@ const AudioPlayers: SFC<{ count: number }> = ({ count }) => {
       {count > 2 && <Sounds.AudioFile key={2} aacSource={aacAudio} />}
       {count > 3 && <Sounds.AudioFile key={3} aacSource={aacAudio} controls={false} />}
       {count > 4 && <Sounds.AudioFile key={4} aacSource={aacAudio} controls={false} />}
-      <RoyalSamplerImageWrapper>
-        <RoyalSamplerImage src={royalSamplerImage} />
-      </RoyalSamplerImageWrapper>
+      {count > 2 && image}
     </>
   )
 }

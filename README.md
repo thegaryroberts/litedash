@@ -17,6 +17,6 @@ Summary of all `npm run` tasks available:
 - `qc`: alias of `cq`.
 - `lint`: runs lint code quality checks.
 - `start`: starts site with hot reloading development server.
-- `test`:
+- `test`: best of luck with that.
 - `type-check`: runs typescript code quality checks.
 - `type-check:watch`: runs `type-check` in watch mode.

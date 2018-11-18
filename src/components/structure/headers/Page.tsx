@@ -3,31 +3,48 @@ import styled from "react-emotion"
 import { NavLink } from "react-router-dom"
 
 import { INavLinkInfo } from "Components/navigation"
+import { styledWithTheme } from "Themes"
 
 export const PageH2 = styled("h2")`
     margin: 0 0 20px 0;
     text-align: center;
 `
 
-export const ParentPageNavLinkWrapper = styled("span")`
+export const ParentPageNavLinkWrapper = styledWithTheme("span")`
     background-image: linear-gradient(
         hsla(301, 40%, 10%, 0),
-        hsla(301, 40%, 10%, 0.2) 40%,
-        hsla(301, 40%, 20%, 0.4) 70%
+        hsla(301, 40%, 10%, 0.2) 10%,
+        hsla(301, 40%, 10%, 0.8) 70%,
+        hsla(301, 40%, 20%, 1) 100%
     );
 
     border-radius: 10px 10px 0 0;
+
+    box-shadow:
+        2px 5px 4px hsla(40, 83%, 0%, 0.4),
+        2px 6px 6px hsla(40, 83%, 10%, 0.2);
+
     font-family: ${(props) => props.theme.fontFamily.heading};
-    font-size: 1em;
+    font-size: 0.9em;
     padding: 0 10px;
 
     a {
+        color: ${(props) => props.theme.color.primaryMuted};
         text-decoration: none;
+
+        &:hover {
+            color: ${(props) => props.theme.color.primaryHighlight};
+        }
+    }
+
+    &::before {
+        content: '< ';
+        color: ${(props) => props.theme.color.tertiary};
     }
 
     &::after {
-        content: ' >';
-        color: hsla(330, 90%, 90%, 0.61);
+        content: ' ...';
+        color: ${(props) => props.theme.color.tertiary};
     }
 `
 
@@ -37,7 +54,7 @@ const ParentPageNavLink: SFC<INavLinkInfo> = ({ to, name }) => (
     </ParentPageNavLinkWrapper>
 )
 
-export const PageTitle = styled("span")`
+export const PageTitle = styledWithTheme("span")`
     background-image: linear-gradient(
         hsla(301, 40%, 10%, 0),
         hsla(301, 40%, 10%, 0.4) 40%,
@@ -46,15 +63,19 @@ export const PageTitle = styled("span")`
 
     border-radius: 30px 30px 0 0;
     font-family: ${(props) => props.theme.fontFamily.content};
-    font-size: 2em;
+    font-size: 1.2em;
     text-decoration: underline;
     padding: 0 12px;
 
-    @media (${(props) => props.theme.layout.tabletUp}) {
+    box-shadow:
+        2px 5px 4px hsla(40, 83%, 0%, 0.4),
+        2px 6px 6px hsla(40, 83%, 10%, 0.2);
+
+    ${(props) => props.theme.mq.tablet} {
         font-size: 2.5em;
     }
 
-    @media (${(props) => props.theme.layout.desktopUp}) {
+    ${(props) => props.theme.mq.desktop} {
         font-size: 3em;
     }
 `
@@ -63,10 +84,8 @@ export const Page: SFC<{ parentPageNavLinkInfo?: INavLinkInfo }> = ({ children, 
 
     return (
         <PageH2>
-            <span>
-                {parentPageNavLinkInfo && <><ParentPageNavLink {...parentPageNavLinkInfo} /> <br /></>}
-                <PageTitle>{children}</PageTitle>
-            </span>
+            {parentPageNavLinkInfo && <><ParentPageNavLink {...parentPageNavLinkInfo} /> <br /></>}
+            <PageTitle>{children}</PageTitle>
         </PageH2>
     )
 }

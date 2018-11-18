@@ -7,8 +7,9 @@ Guidance on contributing to this project.
 
 Branch names use `kebab-case`, with prefixes as:
 - `new/` - branches for new features, e.g. `new/the-feature`
+- `add/` - branches for adding improvements to existing features, e.g. `add/improved-feature`
 - `use/` - branches for config & task changes, e.g. `use/config-change`
-- `bug/` - branches for bug fixes, e.g. `bug/fixed-issue`
+- `fix/` - branches for bug fixes, e.g. `fix/broken-item`
 - `doc/` - branches used for documenation only changes, e.g. `doc/contribution-guidelines`
 
 ---

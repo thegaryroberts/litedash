@@ -3,7 +3,7 @@ import styled from "react-emotion"
 import { HashLink as Link } from "react-router-hash-link"
 
 const StyledNav = styled("nav")`
-    font-size: 0.8em;
+    font-size: 0.6em;
     text-align: right;
     margin: 0 0 0 0;
     padding: 0;
@@ -32,6 +32,10 @@ const StyledNav = styled("nav")`
                 filter: opacity(1);
             }
         }
+    }
+
+    ${(props) => props.theme.mq.tablet} {
+        font-size: 0.8em;
     }
 `
 

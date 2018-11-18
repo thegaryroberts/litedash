@@ -1,48 +1,85 @@
 import React, { SFC } from "react"
-import styled from "react-emotion"
 
-import { Graphics } from "Components/graphics"
+// @ts-ignore
+import tech from "Assets/tech.json"
+import { styledWithTheme } from "Themes"
+
+import { Graphics } from "Components/media/graphics"
 import { Headers } from "Components/structure/headers"
 import { Layout } from "Components/structure/layout"
-import { textRepeater } from "Functions/text-repeater"
 
-const Group = styled("h4")`
-    text-align: left;
+const Group = styledWithTheme("h4")`
+    color: ${(props) => props.theme.color.secondaryHighlight};
     margin: 0 0 0 0;
 `
 
-const Items = styled("ul")`
+const Items = styledWithTheme("ul")`
     margin: 0 0 12px 0;
     text-align: left;
     list-type: none;
 
     li {
-        color: ${(props) => props.theme.color.primaryMuted};
+        color: ${(props) => props.theme.color.secondary};
     }
 `
 
-export const Tech: SFC = () => (
-    <div>
-        <Graphics.PageName>{textRepeater("Tech", 6)}</Graphics.PageName>
-        <Headers.Page parentPageNavLinkInfo={{ name: "F.A.Q.", to: "/faq" }}>Technologies Embraced</Headers.Page>
-        <Layout.Content>
-            <Layout.Section>
-                <Group id="JS">Javascript</Group>
-                <Items>
-                    <li>React</li>
-                    <li>Other Things...</li>
-                </Items>
-            </Layout.Section>
-            <Layout.Section>
-                <Group id="CSS">CSS</Group>
-                <Items>
-                    <li>Emotion</li>
-                    <li>Other Things...</li>
-                </Items>
-            </Layout.Section>
-            <Layout.Section>
-                More Technologies being added soon...
-            </Layout.Section>
-        </Layout.Content>
-    </div>
-)
+const More = styledWithTheme("div")`
+    color: ${(props) => props.theme.color.secondaryHighlight};
+`
+
+interface IGroup {
+    id: string
+    name: string
+    techNames: string[]
+}
+
+interface ITechData {
+    groups: IGroup[]
+}
+
+const TechSection: SFC<IGroup> = ({ id, name, techNames }) => {
+
+    const items = techNames.map((techName) => <li key={techName}>{techName}</li>)
+
+    return (
+        <Layout.FreeBox>
+            <Group id={id}>{name}</Group>
+            <Items>
+                {items}
+            </Items>
+        </Layout.FreeBox>
+    )
+}
+
+const TechContent: SFC = () => {
+
+    const sections = (tech as ITechData).groups
+        .map((group) => (
+            <TechSection key={group.id} {...group} />
+        ))
+
+    return (
+        <>
+            {sections}
+        </>
+    )
+}
+
+export const Tech: SFC = () => {
+
+    return (
+        <div>
+            <Graphics.BackgroundTitle title="Tech" repeatCount={6} />
+            <Headers.Page parentPageNavLinkInfo={{ name: "F.A.Q.", to: "/faq" }}>Technologies Embraced</Headers.Page>
+            <Layout.FlexSet>
+                <TechContent />
+                <Layout.FreeBox>
+                    <More>
+                        More Technologies<br />
+                        coming soon...
+                    </More>
+                </Layout.FreeBox>
+            </Layout.FlexSet>
+        </div>
+    )
+}
