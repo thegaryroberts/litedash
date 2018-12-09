@@ -100,9 +100,9 @@ interface IFunnyButtonState {
   isCrazy: boolean,
 }
 
-export class FunnyButton extends Component<null, IFunnyButtonState> {
+export class FunnyButton extends Component<{}, IFunnyButtonState> {
 
-  constructor(props: null) {
+  constructor(props: {}) {
     super(props)
 
     this.state = {
