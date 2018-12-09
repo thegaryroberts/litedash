@@ -1,6 +1,6 @@
 import { styledWithTheme } from "Themes"
 
-export const BigSticker = styledWithTheme("h1")`
+export const BigSticker = styledWithTheme("div")`
     background-color: hsla(0, 100%, 100%, 0.2);
     border-radius: 25px;
     box-shadow: 1px 1px 8px 0px rgba(50, 50, 50, 0.75);

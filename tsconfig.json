@@ -9,6 +9,7 @@
         "noUnusedParameters": true,
         "strict": true,
         "jsx": "react",
+        "module": "esnext",
         "moduleResolution": "node",
         "esModuleInterop": true,
         "resolveJsonModule": true,

@@ -1,5 +1,9 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin
+const CleanWebpackPlugin = require("clean-webpack-plugin")
+
+const openAnalyzer = false
+const analyzerMode = openAnalyzer ? "server" : "disabled"
 
 const optimization = {
     splitChunks: {
@@ -14,7 +18,13 @@ const optimization = {
 }
 
 const plugins = [
-    /* new BundleAnalyzerPlugin(), */
+    new BundleAnalyzerPlugin({
+        analyzerMode,
+        openAnalyzer,
+    }),
+    new CleanWebpackPlugin(["dist"], {
+        exclude: [".gitkeep"],
+    }),
     new HtmlWebPackPlugin({
         filename: "./index.html",
         template: "./src/index.html",

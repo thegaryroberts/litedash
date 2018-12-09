@@ -1,10 +1,8 @@
-import React, { SFC, useState } from "react"
+import React, { Component, SFC } from "react"
 import styled, { keyframes } from "react-emotion"
 
 import { Sounds } from "Components/media/sounds"
 
-// @ts-ignore
-import aacAudio from "../../../assets/12.aac"
 // @ts-ignore
 import royalSamplerImage from "../../../assets/royal-sampler.png"
 
@@ -46,7 +44,7 @@ const strobe = keyframes`
   }
 `
 
-const AudioPlayers: SFC<{ count: number }> = ({ count }) => {
+const AudioPlayers: SFC<{ count: number, aacSource: string }> = ({ count, aacSource }) => {
 
   const animationPlayState = count > 3 ? "running" : "stopped"
 
@@ -66,11 +64,11 @@ const AudioPlayers: SFC<{ count: number }> = ({ count }) => {
 
   return (
     <>
-      <Sounds.AudioFile key={0} aacSource={aacAudio} />
-      {count > 1 && <Sounds.AudioFile key={1} aacSource={aacAudio} />}
-      {count > 2 && <Sounds.AudioFile key={2} aacSource={aacAudio} />}
-      {count > 3 && <Sounds.AudioFile key={3} aacSource={aacAudio} controls={false} />}
-      {count > 4 && <Sounds.AudioFile key={4} aacSource={aacAudio} controls={false} />}
+      <Sounds.AudioFile key={0} aacSource={aacSource} />
+      {count > 1 && <Sounds.AudioFile key={1} aacSource={aacSource} />}
+      {count > 2 && <Sounds.AudioFile key={2} aacSource={aacSource} />}
+      {count > 3 && <Sounds.AudioFile key={3} aacSource={aacSource} controls={false} />}
+      {count > 4 && <Sounds.AudioFile key={4} aacSource={aacSource} controls={false} />}
       {count > 2 && image}
     </>
   )
@@ -96,15 +94,40 @@ const bounce = keyframes`
     transform: rotate(0) translateY(0);
   }
 `
+interface IFunnyButtonState {
+  aacAudio: string | null,
+  count: number
+  isCrazy: boolean,
+}
 
-export const FunnyButton: SFC = () => {
+export class FunnyButton extends Component<null, IFunnyButtonState> {
 
-  const [isCrazy, setCrazy] = useState(false)
-  const [count, setCount] = useState(0)
+  constructor(props: null) {
+    super(props)
 
-  const animationPlayState = isCrazy ? "running" : "stopped"
+    this.state = {
+      aacAudio: null,
+      count: 0,
+      isCrazy: false,
+    }
+  }
 
-  const Button = styled("button")`
+  public componentDidMount() {
+
+    // @ts-ignore
+    import("../../../assets/12.aac")
+      .then((module) => {
+        this.setState({ aacAudio: module.default })
+      })
+  }
+
+  public render() {
+
+    const { aacAudio, isCrazy, count } = this.state
+
+    const animationPlayState = isCrazy ? "running" : "stopped"
+
+    const Button = styled("button")`
     border-radius: 4px;
     font-size: 0.8em;
     margin: 0 10px;
@@ -118,16 +141,24 @@ export const FunnyButton: SFC = () => {
     }
   `
 
-  const crazyTime = () => {
-    setCrazy(true)
-    setCount(count + 1)
+    const crazyTime = () => {
+      this.setState((lastState) => ({ ...lastState, isCrazy: true, count: lastState.count + 1 }))
+    }
+
+    const bumpCount = () => {
+      this.setState((lastState) => ({ ...lastState, count: lastState.count + 1 }))
+    }
+
+    const funnyHandler = () => { count === 4 ? crazyTime() : bumpCount() }
+
+    const getActiveContent = (newAacAudio: string) => (
+      <><Reaction count={count} /> <br /> <AudioPlayers aacSource={newAacAudio} count={count} /></>
+    )
+
+    return (
+      <Button type="button" onClick={funnyHandler}>
+        {!!count && !!aacAudio ? getActiveContent(aacAudio) : <span>What?</span>}
+      </Button >
+    )
   }
-
-  const funnyHandler = () => { count === 4 ? crazyTime() : setCount(count + 1) }
-
-  return (
-    <Button type="button" onClick={funnyHandler}>
-      {!!count ? <><Reaction count={count} /> <br /> <AudioPlayers count={count} /></> : <span>What?</span>}
-    </Button >
-  )
 }

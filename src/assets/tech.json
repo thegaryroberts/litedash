@@ -5,6 +5,7 @@
             "name": "Javascript",
             "techNames": [
                 "ES6 Imports",
+                "Dynamic Imports",
                 "Rest & Spread Operators",
                 "Promises",
                 "Fetch API"
@@ -96,8 +97,10 @@
             "techNames": [
                 "Dev & Production Builds",
                 "HTML Templating",
-                "Sorucemaps",
-                "Entry Polyfills (what-wg)"
+                "Sourcemaps",
+                "Entry Polyfills (what-wg)",
+                "Bundle Analysis",
+                "Selective Output Clean Up"
             ]
         },
         {
