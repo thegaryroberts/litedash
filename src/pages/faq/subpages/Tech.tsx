@@ -4,8 +4,7 @@ import React, { SFC } from "react"
 import tech from "Assets/tech.json"
 import { styledWithTheme } from "Themes"
 
-import { Graphics } from "Components/media/graphics"
-import { Headers } from "Components/structure/headers"
+import { Headers } from "Components/headers"
 import { Layout } from "Components/structure/layout"
 
 const Group = styledWithTheme("h4")`
@@ -69,8 +68,7 @@ export const Tech: SFC = () => {
 
     return (
         <div>
-            <Graphics.BackgroundTitle title="Tech" repeatCount={6} />
-            <Headers.Page parentPageNavLinkInfo={{ name: "F.A.Q.", to: "/faq" }}>Technologies Embraced</Headers.Page>
+            <Headers.Page.Sub nameOfParent="F.A.Q." toParent="/faq">Technologies Embraced</Headers.Page.Sub>
             <Layout.FlexSet>
                 <TechContent />
                 <Layout.FreeBox>

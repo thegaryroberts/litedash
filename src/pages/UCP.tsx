@@ -2,7 +2,6 @@ import React, { SFC, useEffect } from "react"
 
 import { Graphics } from "Components/media/graphics"
 import { Content } from "Components/structure/content"
-import { Layout } from "Components/structure/layout"
 import { useGlobalStateOf } from "States/global"
 
 const getText = (counter: number) => {

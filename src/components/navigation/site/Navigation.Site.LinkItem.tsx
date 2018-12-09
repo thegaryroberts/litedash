@@ -5,6 +5,14 @@ import { styledWithTheme } from "Themes"
 
 import { INavLinkInfo } from "./Interfaces"
 
+const visibleMarker = `
+    &::before {
+        content: '>';
+        opacity: 1;
+        transform: translateX(0);
+    }
+`
+
 const StyledLi = styledWithTheme("li")`
 
     a {
@@ -18,20 +26,30 @@ const StyledLi = styledWithTheme("li")`
             2px 5px 4px hsla(40, 83%, 0%, 1),
             3px 6px 6px hsla(40, 83%, 10%, 1);
 
-        &:hover {
-            color: ${(props) => props.theme.color.primaryHighlight};
-        }
 
         &::before {
             color: ${(props) => props.theme.color.primaryHighlight};
             content: "\00a0 ";
             display: inline-block;
             width: 10px;
+            opacity: 0;
+            transform: translateX(-3px);
+            transition: opacity 0.2s ease-out, transform 0.2s ease-out;
         }
 
-        &.selected::before {
-            content: '>';
-            display: inline-block;
+        &:hover {
+            color: ${(props) => props.theme.color.primaryHighlight};
+            ${visibleMarker}
+        }
+
+        &.selected{
+
+            ${visibleMarker}
+
+            &:hover {
+                color: ${(props) => props.theme.color.primary};
+                cursor: default;
+            }
         }
 
         ${(props) => props.theme.mq.tablet} {

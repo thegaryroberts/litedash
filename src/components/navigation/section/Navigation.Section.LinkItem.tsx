@@ -3,7 +3,6 @@ import styled from "react-emotion"
 import { HashLink as Link } from "react-router-hash-link"
 
 const StyledLi = styled("li")`
-
     margin: 0 3px 0 2px;
 
     &::after {
@@ -24,5 +23,5 @@ export interface ISectionLinkItemProps {
     name: string
 }
 
-export const SectionLinkItem: SFC<ISectionLinkItemProps> = ({ hash, path, name }) =>
+export const LinkItem: SFC<ISectionLinkItemProps> = ({ hash, path, name }) =>
     <StyledLi><Link to={`${path}#${hash}`}>{name}</Link></StyledLi>

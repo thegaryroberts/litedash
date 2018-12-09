@@ -22,4 +22,4 @@ const StyledNav = styledWithTheme("nav")`
     }
 `
 
-export const SiteSet: SFC = ({ children }) => <StyledNav><ul>{children}</ul></StyledNav>
+export const Set: SFC = ({ children }) => <StyledNav><ul>{children}</ul></StyledNav>

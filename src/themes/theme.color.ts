@@ -17,5 +17,5 @@ export const color: IColor = {
     secondaryHighlight: "hsla(271, 98%, 92%, 1)",
     tertiary: "hsla(30, 80%, 90%, 0.8)",
     tertiarySoft: "hsla(30, 80%, 90%, 0.4)",
-    ultraRare: "hsla(220, 96%, 57%, 0.82)",
+    ultraRare: "hsla(270, 96%, 57%, 0.82)",
 }

@@ -5,7 +5,8 @@ import { styledWithTheme } from "Themes"
 const SiteHeader = styledWithTheme("h1")`
     font-family: ${(props) => props.theme.fontFamily.content};
     font-size: 2em;
-    margin: 10px 0;
+    margin: 0 0 10px 0;
+    padding-top: 10px;
     text-align: center;
     text-shadow:
         0px 2px 0px hsla(30, 80%, 80%, 1),

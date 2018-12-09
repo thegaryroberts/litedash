@@ -20,6 +20,9 @@
             "Components/*": [
                 "src/components/*"
             ],
+            "Demos": [
+                "src/demos/index.js"
+            ],
             "Functions/*": [
                 "src/functions/*"
             ],

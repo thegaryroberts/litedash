@@ -6,12 +6,8 @@ import { theme } from "Themes"
         box-sizing: border-box;
     }
 
-    html {
-        height: 100%;
-    }
-
-    html, body {
-        margin: 0;
+    html, body, #app {
+        min-height: 100%;
     }
 
     body {
@@ -19,8 +15,10 @@ import { theme } from "Themes"
         background-repeat: no-repeat;
         background-attachment: fixed;
         color: white;
-        height: 95vh;
+        margin: 0;
         min-width: 302px;
+        overflow-x: hidden;
+        overflow-y: scroll;
     }
 
     a[href] {

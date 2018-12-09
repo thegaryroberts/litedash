@@ -1,7 +1,7 @@
-import { Content } from "./Content"
-import { FreeBox } from "./FreeBox"
-import { FlexSet } from "./FlexSet"
-import { Section } from "./Section"
+import { Content } from "./Layout.Content"
+import { FreeBox } from "./Layout.FreeBox"
+import { FlexSet } from "./Layout.FlexSet"
+import { Section } from "./Layout.Section"
 
 export const Layout = {
     Content,

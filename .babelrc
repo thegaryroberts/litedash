@@ -26,6 +26,7 @@
         "alias": {
           "Assets": "./src/assets",
           "Components": "./src/components",
+          "Demos": "./src/demos",
           "Functions": "./src/functions",
           "Interfaces": "./src/interfaces",
           "Pages": "./src/pages",

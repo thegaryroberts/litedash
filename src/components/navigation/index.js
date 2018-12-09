@@ -1,13 +1,9 @@
-import { LinkItem } from "./LinkItem"
-import { SiteSet } from "./SiteSet"
-import { SectionLinkItem } from "./SectionLinkItem"
-import { SectionSet } from "./SectionSet"
+import { Site } from "./site"
+import { Section } from "./section"
 
-export * from "./Interfaces"
+export * from "./site/Interfaces"
 
 export const Navigation = {
-    LinkItem,
-    SectionLinkItem,
-    SectionSet,
-    SiteSet,
+    Section,
+    Site,
 }

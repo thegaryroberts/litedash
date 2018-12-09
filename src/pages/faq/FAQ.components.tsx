@@ -32,7 +32,7 @@ export const Question = styledWithTheme("h4")`
     }
 
     ${(props) => props.theme.mq.widescreen} {
-        margin: 0 0 50px 30px;
+        margin: 0 0 40px 30px;
     }
 `
 

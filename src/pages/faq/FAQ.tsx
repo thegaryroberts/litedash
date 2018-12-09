@@ -3,7 +3,7 @@ import { HashLink as Link } from "react-router-hash-link"
 
 import { Buttons } from "Components/interactive/buttons"
 
-import { Headers } from "Components/structure/headers"
+import { Headers } from "Components/headers"
 import { Layout } from "Components/structure/layout"
 
 import { Answer, AnswerAbrupt, Exclamation, Interrobang, OpeningGambit, Question, Statement } from "./FAQ.components"
@@ -11,7 +11,7 @@ import { FAQNav } from "./FAQ.navigation"
 
 export const FAQ: SFC = () => (
     <>
-        <Headers.Page>Frequently Asked Questions</Headers.Page>
+        <Headers.Page.Root>Frequently Asked Questions</Headers.Page.Root>
         <Layout.Content>
             <Layout.Section>
                 <FAQNav />
@@ -51,9 +51,9 @@ export const FAQ: SFC = () => (
                 <Answer>
                     <li><strong>Yes!</strong></li>
                     <li>Web Components Stuff: <u>Stencil, Shadow DOM, HTML Templates, etc.</u></li>
-                    <li>Containerisation Stuff: <u>Docker, Docker Compose, etc.</u></li>
                     <li>Server-Side Stuff: <u>APIs, Integrations, etc.</u></li>
                     <li>Database &amp; ORM Stuff: <u>Graph QL, Postgraphile, probably</u></li>
+                    <li>Containerisation Stuff: <u>Docker, Docker Compose, etc.</u></li>
                 </Answer>
                 <Exclamation id="hang">Hang on a minute</Exclamation>
                 <AnswerAbrupt>
@@ -83,11 +83,11 @@ export const FAQ: SFC = () => (
                 </AnswerAbrupt>
                 <Statement id="well">Well I'm not going to do that then</Statement>
                 <Answer>
-                    <li>That's a real shame.</li>
+                    <li>That's a shame.</li>
                 </Answer>
                 <Question id="can">Can I get the precious source codes anyway, for free</Question>
                 <Answer>
-                    <li>Yes, <a href="https://github.com/thegaryroberts/royal-sampler-web" target="_">here!</a></li>
+                    <li>Yes. <a href="https://github.com/thegaryroberts/royal-sampler-web" target="_">Here!</a></li>
                 </Answer>
                 <FAQNav isEnd={true} />
             </Layout.Section>

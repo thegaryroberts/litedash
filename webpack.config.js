@@ -14,7 +14,7 @@ const optimization = {
 }
 
 const plugins = [
-    new BundleAnalyzerPlugin(),
+    /* new BundleAnalyzerPlugin(), */
     new HtmlWebPackPlugin({
         filename: "./index.html",
         template: "./src/index.html",

@@ -8,7 +8,7 @@
     "cq": "npm run lint && npm run type-check",
     "qc": "npm run cq",
     "lint": "tslint -c tslint.yaml --fix 'src/**/*.{js,ts,tsx}'",
-    "start": "webpack-dev-server --mode development --open",
+    "start": "webpack-dev-server --mode development",
     "test": "echo \"Error: no test specified\" && exit 1",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch"

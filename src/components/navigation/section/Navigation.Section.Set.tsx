@@ -39,7 +39,7 @@ const StyledNav = styled("nav")`
     }
 `
 
-export const SectionSet: SFC<{ isEnd?: boolean, path: string }> = ({ children, isEnd = false, path }) => {
+export const Set: SFC<{ isEnd?: boolean, path: string }> = ({ children, isEnd = false, path }) => {
 
     const topLink = <Link to={`${path}#top`}>Top of These</Link>
     const startLink = <Link to={`${path}#start`}>Start</Link>
